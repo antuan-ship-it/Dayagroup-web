@@ -2,171 +2,402 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Daya Group - Global Freight Forwarding, Customs Brokerage & Integrated Sourcing. PSA BDP Ecosystem Partner.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daya Group | Global Logistics & International Sourcing</title>
-    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* === CSS VARIABLES === */
-        :root {
-            --bg-dark: #030712;
-            --bg-surface: #0F172A;
-            --bg-surface-light: #1E293B;
-            --primary: #0284C7;
-            --primary-hover: #0369A1;
-            --accent-cyan: #38BDF8;
-            --accent-green: #10B981;
-            --text-main: #F8FAFC;
-            --text-muted: #94A3B8;
-            --border-glass: rgba(255, 255, 255, 0.1);
-            --glass-bg: rgba(15, 23, 42, 0.7);
-            --header-height: 80px;
-        }
-
-        /* === RESET & BASE === */
+        /* Robust Base Styles */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: auto; /* Handled by JS */ overflow-x: hidden; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030712; color: #F8FAFC; }
+        body { background-color: #030712; color: #F8FAFC; line-height: 1.6; overflow-x: hidden; width: 100%; min-height: 100vh; }
+
+        /* Solid Header - No WebKit Backdrop-Filter Glitches */
+        header { position: sticky; top: 0; width: 100%; background-color: #0F172A; border-bottom: 1px solid #1E293B; z-index: 1000; padding: 16px 5%; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 800; color: #FFFFFF; text-decoration: none; text-transform: uppercase; }
+        .logo span { color: #38BDF8; }
         
-        /* === TYPOGRAPHY === */
-        h1, h2, h3, h4, h5, h6, .logo { font-family: 'Space Grotesk', sans-serif; }
-        .section-title { font-size: clamp(28px, 5vw, 42px); font-weight: 800; color: #FFF; margin-bottom: 15px; letter-spacing: -0.5px; }
-        .section-subtitle { font-size: clamp(16px, 2vw, 18px); color: var(--text-muted); max-width: 700px; margin-bottom: 50px; }
+        nav { display: flex; gap: 20px; align-items: center; }
+        nav a { color: #94A3B8; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; }
+        nav a:hover { color: #38BDF8; }
+        @media (max-width: 850px) { nav { display: none; } }
 
-        /* === HEADER & NAVIGATION === */
-        header { position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height); background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-glass); z-index: 9999; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; transition: all 0.3s ease; }
-        .logo { font-size: 24px; font-weight: 800; color: #FFF; text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .logo span { color: var(--accent-cyan); }
+        /* Buttons */
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s, transform 0.2s; }
+        .btn-blue { background-color: #0284C7; color: #FFFFFF; }
+        .btn-blue:hover { background-color: #0369A1; }
+        .btn-outline { background-color: #1E293B; color: #FFFFFF; border: 1px solid #334155; }
+        .btn-outline:hover { background-color: #334155; }
+        .btn-green { background-color: #10B981; color: #030712; }
+        .btn-green:hover { background-color: #059669; color: #FFFFFF; }
+
+        /* Hero Section */
+        .hero { padding: 60px 5% 70px; background: linear-gradient(180deg, #0F172A 0%, #030712 100%); border-bottom: 1px solid #1E293B; }
+        .badge { display: inline-block; background-color: rgba(16, 185, 129, 0.15); border: 1px solid #10B981; color: #10B981; padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
+        .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 5vw, 54px); font-weight: 800; line-height: 1.15; color: #FFFFFF; margin-bottom: 20px; max-width: 900px; }
+        .hero p { font-size: clamp(16px, 2vw, 19px); color: #94A3B8; max-width: 780px; margin-bottom: 30px; }
+        .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; }
+
+        /* Stats Bar */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; padding: 35px 5%; background-color: #0F172A; border-bottom: 1px solid #1E293B; text-align: center; }
+        .stat h3 { font-family: 'Space Grotesk', sans-serif; font-size: 36px; color: #38BDF8; font-weight: 800; }
+        .stat p { font-size: 11px; color: #94A3B8; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
+
+        /* Content Sections */
+        .section { padding: 70px 5%; border-bottom: 1px solid #1E293B; }
+        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(26px, 4vw, 36px); font-weight: 800; color: #FFFFFF; margin-bottom: 10px; }
+        .section-subtitle { font-size: 16px; color: #94A3B8; margin-bottom: 40px; max-width: 750px; }
+
+        /* Grids */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+
+        /* Cards */
+        .card { background-color: #0F172A; border: 1px solid #1E293B; border-radius: 12px; padding: 30px; display: flex; flex-direction: column; }
+        .card-icon { font-size: 32px; color: #38BDF8; margin-bottom: 20px; }
+        .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; color: #FFFFFF; margin-bottom: 12px; }
+        .card p { color: #94A3B8; font-size: 14px; line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
+
+        .img-card { background-color: #0F172A; border: 1px solid #1E293B; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+        .img-card-header { height: 180px; background-size: cover; background-position: center; }
+        .img-card-body { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+        .img-card-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; color: #FFFFFF; margin-bottom: 10px; }
+        .img-card-body p { color: #94A3B8; font-size: 14px; margin-bottom: 20px; flex-grow: 1; }
+
+        /* Calculator */
+        .calc-box { background-color: #0F172A; border: 1px solid #10B981; border-radius: 16px; padding: 35px; }
+        .calc-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; color: #FFFFFF; margin-bottom: 10px; }
+        .calc-input { width: 100%; max-width: 380px; background-color: #030712; border: 1px solid #334155; padding: 14px 16px; border-radius: 8px; color: #FFFFFF; font-size: 20px; font-weight: 700; margin-bottom: 20px; outline: none; display: block; }
+        .calc-result { background-color: #030712; border: 1px solid #10B981; padding: 20px; border-radius: 10px; text-align: center; max-width: 380px; }
+        .calc-result span { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 800; color: #10B981; display: block; }
+
+        /* Customs Grid */
+        .ports-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 15px; }
+        .port-card { background-color: #0F172A; border: 1px solid #1E293B; padding: 20px; border-radius: 10px; }
+        .port-card h4 { color: #38BDF8; font-size: 16px; margin-bottom: 5px; }
+        .port-card p { color: #94A3B8; font-size: 12px; }
+
+        /* Modals (No blur effects to prevent Safari iOS screen freezing) */
+        .modal-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); z-index: 10000; display: none; justify-content: center; align-items: center; padding: 20px; }
+        .modal-wrapper.open { display: flex; }
+        .modal-body { background-color: #0F172A; border: 1px solid #334155; border-radius: 16px; padding: 35px; width: 100%; max-width: 550px; position: relative; }
+        .modal-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: #94A3B8; font-size: 22px; cursor: pointer; }
+        .modal-close:hover { color: #FFFFFF; }
         
-        /* Desktop Nav */
-        .nav-links { display: flex; gap: 30px; align-items: center; }
-        .nav-links a { color: var(--text-main); text-decoration: none; font-weight: 600; font-size: 14px; transition: color 0.2s; cursor: pointer; }
-        .nav-links a:hover, .nav-links a.active { color: var(--accent-cyan); }
-        
-        /* Mobile Menu Button */
-        .menu-btn { display: none; font-size: 24px; color: #FFF; background: none; border: none; cursor: pointer; }
-        
-        @media (max-width: 992px) {
-            .nav-links { position: fixed; top: var(--header-height); left: -100%; width: 100%; height: calc(100vh - var(--header-height)); background: var(--bg-dark); flex-direction: column; padding: 40px 5%; transition: 0.4s ease; border-top: 1px solid var(--border-glass); }
-            .nav-links.active { left: 0; }
-            .nav-links a { font-size: 20px; width: 100%; padding: 15px 0; border-bottom: 1px solid var(--border-glass); }
-            .menu-btn { display: block; }
-            .header-cta { display: none; }
-        }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: 12px; font-weight: 700; color: #94A3B8; text-transform: uppercase; margin-bottom: 6px; }
+        .form-control { width: 100%; background-color: #030712; border: 1px solid #334155; padding: 12px 14px; border-radius: 8px; color: #FFFFFF; font-family: inherit; font-size: 14px; outline: none; }
 
-        /* === BUTTONS === */
-        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 32px; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: none; text-decoration: none; }
-        .btn-primary { background: linear-gradient(135deg, var(--primary), #00529B); color: #FFF; box-shadow: 0 10px 20px rgba(2, 132, 199, 0.3); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(2, 132, 199, 0.5); }
-        .btn-outline { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.2); color: #FFF; backdrop-filter: blur(5px); }
-        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #FFF; }
-        .btn-accent { background: var(--accent-green); color: var(--bg-dark); }
-        .btn-accent:hover { background: #059669; color: #FFF; }
+        /* Floating WhatsApp */
+        .wa-float { position: fixed; bottom: 25px; right: 25px; background-color: #25D366; color: #FFFFFF; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; text-decoration: none; box-shadow: 0 8px 20px rgba(0,0,0,0.5); z-index: 9900; }
 
-        /* === HERO SECTION === */
-        .hero { min-height: 100vh; padding: calc(var(--header-height) + 60px) 5% 80px; display: flex; align-items: center; background: linear-gradient(180deg, rgba(3, 7, 18, 0.8), rgba(3, 7, 18, 1)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat fixed; position: relative; }
-        .hero-content { max-width: 900px; z-index: 2; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-green); color: var(--accent-green); padding: 8px 18px; border-radius: 30px; font-size: 12px; font-weight: 700; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
-        .hero h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.1; margin-bottom: 25px; background: linear-gradient(to right, #FFF, #94A3B8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: clamp(16px, 2.5vw, 20px); color: var(--text-muted); margin-bottom: 40px; max-width: 800px; font-weight: 400; }
-        .hero-actions { display: flex; gap: 20px; flex-wrap: wrap; }
-
-        /* === STATS TICKER === */
-        .stats-container { background: var(--bg-surface); border-top: 1px solid var(--border-glass); border-bottom: 1px solid var(--border-glass); padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; }
-        .stat-item h3 { font-size: clamp(32px, 5vw, 48px); color: var(--accent-cyan); margin-bottom: 5px; }
-        .stat-item p { font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1.5px; }
-
-        /* === LAYOUT SECTIONS === */
-        .section { padding: 100px 5%; border-bottom: 1px solid var(--border-glass); position: relative; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; gap: 40px; } }
-
-        /* === SERVICES CARDS === */
-        .service-card { background: var(--bg-surface); border: 1px solid var(--border-glass); border-radius: 16px; padding: 40px; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s; position: relative; overflow: hidden; }
-        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--primary); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
-        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-        .service-card:hover::before { transform: scaleX(1); }
-        .icon-box { width: 64px; height: 64px; background: rgba(2, 132, 199, 0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--accent-cyan); margin-bottom: 25px; }
-        .service-card h3 { font-size: 24px; margin-bottom: 15px; }
-        .service-card p { color: var(--text-muted); margin-bottom: 30px; }
-        
-        /* === COMMODITIES / INDUSTRIES === */
-        .product-card { background: var(--bg-surface); border-radius: 16px; overflow: hidden; border: 1px solid var(--border-glass); display: flex; flex-direction: column; }
-        .product-img { height: 220px; background-size: cover; background-position: center; position: relative; }
-        .product-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--bg-surface), transparent); }
-        .product-content { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; }
-        .product-content h3 { font-size: 22px; margin-bottom: 10px; }
-        .product-content p { color: var(--text-muted); font-size: 15px; margin-bottom: 25px; flex-grow: 1; }
-
-        /* === INTERACTIVE CALCULATOR === */
-        .calculator-wrapper { background: linear-gradient(145deg, var(--bg-surface), var(--bg-dark)); border: 1px solid var(--accent-cyan); border-radius: 24px; padding: 50px; box-shadow: 0 0 40px rgba(2, 132, 199, 0.1); }
-        .calc-input-group { margin-bottom: 30px; }
-        .calc-input-group label { display: block; color: var(--accent-cyan); font-weight: 700; font-size: 13px; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
-        .calc-input { width: 100%; background: rgba(0,0,0,0.3); border: 2px solid var(--border-glass); border-radius: 12px; padding: 18px 24px; color: #FFF; font-size: 24px; font-weight: 600; outline: none; transition: border-color 0.3s; font-family: 'Space Grotesk', sans-serif; }
-        .calc-input:focus { border-color: var(--accent-cyan); }
-        .calc-result-box { background: rgba(16, 185, 129, 0.1); border: 2px dashed var(--accent-green); border-radius: 16px; padding: 30px; text-align: center; }
-        .calc-result-box h4 { color: var(--text-muted); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-        .calc-result-value { font-family: 'Space Grotesk', sans-serif; font-size: clamp(36px, 5vw, 54px); font-weight: 800; color: var(--accent-green); line-height: 1; }
-
-        /* === CUSTOMS MAP GRID === */
-        .customs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
-        .port-card { background: var(--bg-surface); border: 1px solid var(--border-glass); padding: 25px; border-radius: 12px; cursor: pointer; transition: all 0.3s; }
-        .port-card:hover { background: var(--bg-surface-light); border-color: var(--accent-cyan); transform: scale(1.02); }
-        .port-card h4 { font-size: 18px; color: var(--accent-cyan); display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-        .port-card p { font-size: 13px; color: var(--text-muted); }
-
-        /* === MODALS (POP-UPS) === */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(8px); z-index: 10000; opacity: 0; visibility: hidden; transition: all 0.3s ease; display: flex; justify-content: center; align-items: center; padding: 20px; }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-content { background: var(--bg-surface); width: 100%; max-width: 600px; border-radius: 20px; border: 1px solid var(--border-glass); padding: 40px; position: relative; transform: translateY(30px) scale(0.95); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
-        .modal-close { position: absolute; top: 25px; right: 25px; background: none; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; transition: color 0.3s; }
-        .modal-close:hover { color: #FFF; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; }
-        .form-control { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid var(--border-glass); padding: 14px 16px; border-radius: 8px; color: #FFF; font-family: inherit; font-size: 15px; outline: none; }
-        .form-control:focus { border-color: var(--primary); }
-
-        /* === FLOATING WHATSAPP === */
-        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #FFF; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; box-shadow: 0 10px 30px rgba(37,211,102,0.5); z-index: 9900; transition: transform 0.3s; cursor: pointer; text-decoration: none; }
-        .wa-float:hover { transform: scale(1.1) rotate(5deg); }
-        .wa-float::before { content: ''; position: absolute; width: 100%; height: 100%; background: inherit; border-radius: inherit; z-index: -1; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.5); opacity: 0; } }
-
-        /* === FOOTER === */
-        footer { background: #02040A; padding: 80px 5% 40px; border-top: 1px solid var(--border-glass); }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
-        @media (max-width: 850px) { .footer-grid { grid-template-columns: 1fr; } }
-        .footer-brand h3 { font-size: 24px; color: #FFF; margin-bottom: 20px; }
-        .footer-links h4 { color: #FFF; margin-bottom: 20px; font-size: 16px; }
-        .footer-links p, .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; margin-bottom: 12px; display: block; transition: color 0.3s; }
-        .footer-links a:hover { color: var(--accent-cyan); }
-        .footer-bottom { text-align: center; border-top: 1px solid var(--border-glass); padding-top: 30px; color: var(--text-muted); font-size: 13px; }
-
-        /* Animations */
-        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        /* Footer */
+        footer { background-color: #02040A; padding: 60px 5% 30px; border-top: 1px solid #1E293B; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 35px; margin-bottom: 40px; }
+        .footer-grid h4 { color: #FFFFFF; font-size: 16px; margin-bottom: 15px; }
+        .footer-grid p, .footer-grid a { color: #94A3B8; font-size: 14px; text-decoration: none; margin-bottom: 8px; display: block; }
+        .footer-grid a:hover { color: #38BDF8; }
+        .copyright { text-align: center; color: #475569; font-size: 12px; border-top: 1px solid #1E293B; padding-top: 25px; }
     </style>
 </head>
 <body>
 
-    <!-- HEADER / NAV -->
-    <header id="header">
-        <a href="#" class="logo js-scroll">DAYA <span>GROUP</span></a>
-        <nav class="nav-links" id="navLinks">
-            <a href="#about" class="js-scroll">About Us</a>
-            <a href="#services" class="js-scroll">Core Services</a>
-            <a href="#industries" class="js-scroll">Sourcing</a>
-            <a href="#customs" class="js-scroll">Customs Network</a>
-            <a href="#calculator" class="js-scroll">ROI Calculator</a>
+    <!-- Header Navigation -->
+    <header>
+        <a href="#top" class="logo">DAYA <span>GROUP</span></a>
+        <nav>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#industries">Industries</a>
+            <a href="#calculator">CPTPP Calculator</a>
+            <a href="#customs">Customs Network</a>
         </nav>
-        <button class="btn btn-primary
+        <button class="btn btn-blue" onclick="openModal('contactModal')">Contact Us</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="top">
+        <div class="badge"><i class="fa-solid fa-earth-americas"></i> Official CPTPP Trading Partner</div>
+        <h1>Global Freight Forwarding, Customs Brokerage & Integrated Sourcing</h1>
+        <p>Operating as your official Trading Company (Comercializadora) in Mexico. We bridge Asian manufacturing with Latin America through in-house customs brokerage in 14 ports, 0% CPTPP duty advantages, and integrated 3PL fulfillment.</p>
+        <div class="hero-btns">
+            <button class="btn btn-blue" onclick="openModal('rfpModal')"><i class="fa-solid fa-file-contract"></i> Submit RFP Inquiry</button>
+            <a href="#services" class="btn btn-outline">Explore Capabilities <i class="fa-solid fa-arrow-down"></i></a>
+        </div>
+    </section>
+
+    <!-- Metrics -->
+    <div class="stats-grid">
+        <div class="stat">
+            <h3>14</h3>
+            <p>Licensed Customs Ports</p>
+        </div>
+        <div class="stat">
+            <h3>PSA BDP</h3>
+            <p>Global Forwarding Network</p>
+        </div>
+        <div class="stat">
+            <h3>0%</h3>
+            <p>CPTPP Duty Benefit</p>
+        </div>
+        <div class="stat">
+            <h3>NOM / 3PL</h3>
+            <p>Fiscal Compliance</p>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="grid-2">
+            <div>
+                <h2 class="section-title">The Commercializadora Advantage</h2>
+                <p class="section-subtitle">Daya Group removes the friction of international trade by acting as your Importer of Record in Mexico.</p>
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color:#FFF; font-size:18px; margin-bottom:5px;"><i class="fa-solid fa-check" style="color:#38BDF8;"></i> Direct Sourcing from Vietnam & Malaysia</h4>
+                    <p style="color:#94A3B8; font-size:14px;">High-volume purchasing under FOB/DDP terms directly connecting factories with North American buyers.</p>
+                </div>
+                <div style="margin-bottom: 25px;">
+                    <h4 style="color:#FFF; font-size:18px; margin-bottom:5px;"><i class="fa-solid fa-check" style="color:#38BDF8;"></i> Regulatory & Sanitary Shield</h4>
+                    <p style="color:#94A3B8; font-size:14px;">Full management of COFEPRIS permits, NOM labeling compliance, and custom tariff classification.</p>
+                </div>
+                <button class="btn btn-outline" onclick="openModal('contactModal')">Schedule Executive Consultation</button>
+            </div>
+            <div style="background-color: #0F172A; border: 1px solid #1E293B; border-radius: 16px; padding: 35px; text-align: center;">
+                <i class="fa-solid fa-network-wired" style="font-size: 50px; color: #38BDF8; margin-bottom: 20px;"></i>
+                <h3 style="font-family:'Space Grotesk', sans-serif; font-size:24px; color:#FFF; margin-bottom:10px;">PSA BDP Ecosystem Partner</h3>
+                <p style="color:#94A3B8; font-size:14px;">Leveraging world-class ocean freight allocations, priority vessel space, and global tracking visibility for Latin American imports.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services" style="background-color: #0A0F1D;">
+        <h2 class="section-title">Integrated Business Divisions</h2>
+        <p class="section-subtitle">Single-window cross-border supply chain capabilities connecting Asian manufacturers with domestic markets.</p>
+
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
+                <h3>B2B Global Sourcing</h3>
+                <p>Direct factory negotiation, quality control, and high-volume purchasing under FOB or DDP terms leveraging the CPTPP treaty for maximum profitability.</p>
+                <button class="btn btn-outline" onclick="openModal('rfpModal')">Submit Sourcing RFP</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-ship"></i></div>
+                <h3>Freight Forwarding</h3>
+                <p>Ocean freight (FCL/LCL), air cargo, and cross-border trucking supported by vessel space agreements, origin consolidation, and tracking visibility.</p>
+                <button class="btn btn-outline" onclick="openModal('contactModal')">Get Freight Quote</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-passport"></i></div>
+                <h3>Customs & 3PL Logistics</h3>
+                <p>In-house licensed Mexican customs brokerage across 14 ports of entry, official NOM labeling compliance, bonded warehousing, and last-mile delivery.</p>
+                <a href="#customs" class="btn btn-outline">View Ports Coverage</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Commodities -->
+    <section class="section" id="industries">
+        <h2 class="section-title">Target Industry Sourcing & Commodities</h2>
+        <p class="section-subtitle">High-volume commodities imported under 0% CPTPP preferential tariffs.</p>
+
+        <div class="grid-3">
+            <div class="img-card">
+                <div class="img-card-header" style="background-image: url('https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="img-card-body">
+                    <h3>Eco Packaging & Compostables</h3>
+                    <p>Double-wall paper cups, PLA cold cups, and bio-coated food containers imported from Vietnam under 0% CPTPP tariff benefits.</p>
+                    <button class="btn btn-blue" onclick="openModal('catalogModal')">Request Specs & Catalog</button>
+                </div>
+            </div>
+
+            <div class="img-card">
+                <div class="img-card-header" style="background-image: url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="img-card-body">
+                    <h3>Medical Nitrile Gloves</h3>
+                    <p>Powder-free medical examination gloves sourced from top Malaysian and Vietnamese manufacturers with full COFEPRIS compliance.</p>
+                    <button class="btn btn-blue" onclick="openModal('catalogModal')">Request Specs & Catalog</button>
+                </div>
+            </div>
+
+            <div class="img-card">
+                <div class="img-card-header" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="img-card-body">
+                    <h3>Industrial LED Lighting</h3>
+                    <p>High-bay LED panels, floodlights, and electrical components with mandatory Mexican NOM certifications.</p>
+                    <button class="btn btn-blue" onclick="openModal('catalogModal')">Request Specs & Catalog</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="section" id="calculator" style="background-color: #0A0F1D;">
+        <div class="grid-2">
+            <div>
+                <h2 class="section-title">The CPTPP Duty Advantage</h2>
+                <p class="section-subtitle">Migrating sourcing from non-treaty origins (like China: 35% Duty) to CPTPP nations (Vietnam, Malaysia: 0% Duty) increases profit margins instantly.</p>
+                <div class="calc-box">
+                    <h3>CPTPP Duty Savings Calculator</h3>
+                    <p style="color:#94A3B8; font-size:14px; margin-bottom:15px;">Enter estimated shipment FOB Value in USD:</p>
+                    <input type="number" id="fobInput" class="calc-input" value="50000" oninput="runCalculator()">
+                    <div class="calc-result">
+                        <p style="color:#94A3B8; font-size:12px; text-transform:uppercase;">Estimated Tax Savings in Mexico</p>
+                        <span id="savingsOutput">$17,500 USD</span>
+                        <p style="color:#10B981; font-size:12px; margin-top:5px;"><i class="fa-solid fa-circle-check"></i> 0% Import Duty under CPTPP Certificate</p>
+                    </div>
+                </div>
+            </div>
+            <div style="padding:20px;">
+                <h3 style="font-family:'Space Grotesk', sans-serif; color:#FFF; font-size:24px; margin-bottom:15px;">Why Sourcing with Daya Group?</h3>
+                <ul style="color:#94A3B8; font-size:15px; line-height:2; list-style:none;">
+                    <li><i class="fa-solid fa-check" style="color:#10B981;"></i> 100% legal verification of CPTPP Origin Certificates.</li>
+                    <li><i class="fa-solid fa-check" style="color:#10B981;"></i> Zero tariff risk at Mexican customs clearance.</li>
+                    <li><i class="fa-solid fa-check" style="color:#10B981;"></i> End-to-end Door-to-Door (DDP) logistics options.</li>
+                    <li><i class="fa-solid fa-check" style="color:#10B981;"></i> Direct relationship with top Asian suppliers.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customs Ports Grid -->
+    <section class="section" id="customs">
+        <h2 class="section-title">14 Licensed Customs Gateways</h2>
+        <p class="section-subtitle">In-house customs clearance, NOM compliance, and fiscal warehousing at primary Mexican trade hubs.</p>
+
+        <div class="ports-grid">
+            <div class="port-card"><h4><i class="fa-solid fa-anchor"></i> Manzanillo</h4><p>Pacific / Primary Asia Gateway</p></div>
+            <div class="port-card"><h4><i class="fa-solid fa-anchor"></i> Lázaro Cárdenas</h4><p>Pacific / Deepwater Hub</p></div>
+            <div class="port-card"><h4><i class="fa-solid fa-anchor"></i> Veracruz</h4><p>Gulf Coast / Transatlantic Hub</p></div>
+            <div class="port-card"><h4><i class="fa-solid fa-anchor"></i> Altamira</h4><p>Northern Gulf Port / Industrial Cargo</p></div>
+            <div class="port-card"><h4><i class="fa-solid fa-truck-front"></i> Nuevo Laredo</h4><p>Primary Border Gateway / US-MX</p></div>
+            <div class="port-card"><h4><i class="fa-solid fa-plane"></i> AICM / AIFA</h4><p>Mexico City Airports / Air Freight</p></div>
+            <div class="port-card"><h4><i class="fa-solid fa-warehouse"></i> Guadalajara</h4><p>Inland Terminal / Tech & Pharma</p></div>
+            <div class="port-card"><h4><i class="fa-solid fa-industry"></i> Monterrey</h4><p>Inland Terminal / Nearshoring Hub</p></div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/525536602750?text=Hello%20Antuan,%20I%20am%20visiting%20the%20Daya%20Group%20portal" class="wa-float" target="_blank" title="Contact Executive Director">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3 style="font-family:'Space Grotesk', sans-serif; color:#FFF; font-size:22px; margin-bottom:12px;">DAYA <span style="color:#38BDF8;">GROUP</span></h3>
+                <p>Official Trading Company (Comercializadora) & Global Supply Chain Division of an integrated international logistics group.</p>
+            </div>
+            <div>
+                <h4>Executive Contact</h4>
+                <p><strong>Antuan Ayoub Karam</strong></p>
+                <p>Sourcing & Supply Chain Director</p>
+                <p>Email: contacto@dayagroup.mx</p>
+                <p>WhatsApp: +52 55 3660 2750</p>
+            </div>
+            <div>
+                <h4>Global Operations</h4>
+                <p>Daya Group Sourcing Division</p>
+                <p>Mexico City, Mexico</p>
+                <p>www.dayagroup.mx</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Daya Group Mexico. All Rights Reserved. Global Sourcing & Freight Forwarding Integration.
+        </div>
+    </footer>
+
+    <!-- MODAL 1: Contact Modal -->
+    <div class="modal-wrapper" id="contactModal">
+        <div class="modal-body">
+            <button class="modal-close" onclick="closeModal('contactModal')">&times;</button>
+            <h3 style="font-family:'Space Grotesk', sans-serif; color:#FFF; font-size:24px; margin-bottom:10px;">Contact Executive Office</h3>
+            <p style="color:#94A3B8; font-size:14px; margin-bottom:20px;">Send your inquiry directly to Antuan Ayoub Karam.</p>
+            <form action="mailto:contacto@dayagroup.mx" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label>Your Name / Company</label>
+                    <input type="text" name="Company" class="form-control" required placeholder="John Doe / Company Inc">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="Email" class="form-control" required placeholder="john@company.com">
+                </div>
+                <div class="form-group">
+                    <label>Message / Requirement</label>
+                    <textarea name="Message" class="form-control" rows="4" required placeholder="Describe your logistics or sourcing project..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-blue" style="width:100%;">Send Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: RFP Modal -->
+    <div class="modal-wrapper" id="rfpModal">
+        <div class="modal-body">
+            <button class="modal-close" onclick="closeModal('rfpModal')">&times;</button>
+            <h3 style="font-family:'Space Grotesk', sans-serif; color:#FFF; font-size:24px; margin-bottom:10px;">Submit Sourcing / Freight RFP</h3>
+            <p style="color:#94A3B8; font-size:14px; margin-bottom:20px;">Provide preliminary details for immediate evaluation.</p>
+            <form action="mailto:contacto@dayagroup.mx" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label>Origin & Destination</label>
+                    <input type="text" name="Route" class="form-control" required placeholder="e.g. Vietnam to Manzanillo, MX">
+                </div>
+                <div class="form-group">
+                    <label>Commodity Details & Volume</label>
+                    <input type="text" name="Commodity" class="form-control" required placeholder="e.g. 2x40HQ Nitrile Gloves / Eco Packaging">
+                </div>
+                <button type="submit" class="btn btn-green" style="width:100%;">Submit RFP Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 3: Catalog Modal -->
+    <div class="modal-wrapper" id="catalogModal">
+        <div class="modal-body" style="text-align: center;">
+            <button class="modal-close" onclick="closeModal('catalogModal')">&times;</button>
+            <i class="fa-solid fa-file-pdf" style="font-size: 50px; color: #38BDF8; margin-bottom: 15px;"></i>
+            <h3 style="font-family:'Space Grotesk', sans-serif; color:#FFF; font-size:24px; margin-bottom:10px;">Request Product Catalogs & Pricing</h3>
+            <p style="color:#94A3B8; font-size:14px; margin-bottom:25px;">Due to B2B pricing fluctuations, product data sheets and price lists are sent directly via Email or WhatsApp.</p>
+            <a href="https://wa.me/525536602750?text=Hello%20Antuan,%20I%20want%20to%20request%20catalogs%20and%20pricing" target="_blank" class="btn btn-green" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp Now</a>
+        </div>
+    </div>
+
+    <!-- JavaScript Execution -->
+    <script>
+        function runCalculator() {
+            var val = document.getElementById('fobInput').value || 0;
+            var savings = val * 0.35;
+            document.getElementById('savingsOutput').innerText = '$' + Number(savings).toLocaleString('en-US', {maximumFractionDigits: 0}) + ' USD';
+        }
+
+        function openModal(id) {
+            var modal = document.getElementById(id);
+            if(modal) { modal.classList.add('open'); }
+        }
+
+        function closeModal(id) {
+            var modal = document.getElementById(id);
+            if(modal) { modal.classList.remove('open'); }
+        }
+
+        // Close modal when clicking dark overlay
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-wrapper')) {
+                event.target.classList.remove('open');
+            }
+        };
+
+        // Initialize calculator on load
+        runCalculator();
+    </script>
+</body>
+</html>
