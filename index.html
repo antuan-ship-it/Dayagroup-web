@@ -12,12 +12,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Robust Base Styles */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030712; color: #F8FAFC; }
         body { background-color: #030712; color: #F8FAFC; line-height: 1.6; overflow-x: hidden; width: 100%; min-height: 100vh; }
 
-        /* Solid Header - No WebKit Backdrop-Filter Glitches */
         header { position: sticky; top: 0; width: 100%; background-color: #0F172A; border-bottom: 1px solid #1E293B; z-index: 1000; padding: 16px 5%; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 800; color: #FFFFFF; text-decoration: none; text-transform: uppercase; }
         .logo span { color: #38BDF8; }
@@ -27,7 +25,6 @@
         nav a:hover { color: #38BDF8; }
         @media (max-width: 850px) { nav { display: none; } }
 
-        /* Buttons */
         .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s, transform 0.2s; }
         .btn-blue { background-color: #0284C7; color: #FFFFFF; }
         .btn-blue:hover { background-color: #0369A1; }
@@ -36,28 +33,23 @@
         .btn-green { background-color: #10B981; color: #030712; }
         .btn-green:hover { background-color: #059669; color: #FFFFFF; }
 
-        /* Hero Section */
         .hero { padding: 60px 5% 70px; background: linear-gradient(180deg, #0F172A 0%, #030712 100%); border-bottom: 1px solid #1E293B; }
         .badge { display: inline-block; background-color: rgba(16, 185, 129, 0.15); border: 1px solid #10B981; color: #10B981; padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
         .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 5vw, 54px); font-weight: 800; line-height: 1.15; color: #FFFFFF; margin-bottom: 20px; max-width: 900px; }
         .hero p { font-size: clamp(16px, 2vw, 19px); color: #94A3B8; max-width: 780px; margin-bottom: 30px; }
         .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; }
 
-        /* Stats Bar */
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; padding: 35px 5%; background-color: #0F172A; border-bottom: 1px solid #1E293B; text-align: center; }
         .stat h3 { font-family: 'Space Grotesk', sans-serif; font-size: 36px; color: #38BDF8; font-weight: 800; }
         .stat p { font-size: 11px; color: #94A3B8; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
 
-        /* Content Sections */
         .section { padding: 70px 5%; border-bottom: 1px solid #1E293B; }
         .section-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(26px, 4vw, 36px); font-weight: 800; color: #FFFFFF; margin-bottom: 10px; }
         .section-subtitle { font-size: 16px; color: #94A3B8; margin-bottom: 40px; max-width: 750px; }
 
-        /* Grids */
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center; }
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
 
-        /* Cards */
         .card { background-color: #0F172A; border: 1px solid #1E293B; border-radius: 12px; padding: 30px; display: flex; flex-direction: column; }
         .card-icon { font-size: 32px; color: #38BDF8; margin-bottom: 20px; }
         .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; color: #FFFFFF; margin-bottom: 12px; }
@@ -69,20 +61,17 @@
         .img-card-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; color: #FFFFFF; margin-bottom: 10px; }
         .img-card-body p { color: #94A3B8; font-size: 14px; margin-bottom: 20px; flex-grow: 1; }
 
-        /* Calculator */
         .calc-box { background-color: #0F172A; border: 1px solid #10B981; border-radius: 16px; padding: 35px; }
         .calc-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; color: #FFFFFF; margin-bottom: 10px; }
         .calc-input { width: 100%; max-width: 380px; background-color: #030712; border: 1px solid #334155; padding: 14px 16px; border-radius: 8px; color: #FFFFFF; font-size: 20px; font-weight: 700; margin-bottom: 20px; outline: none; display: block; }
         .calc-result { background-color: #030712; border: 1px solid #10B981; padding: 20px; border-radius: 10px; text-align: center; max-width: 380px; }
         .calc-result span { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 800; color: #10B981; display: block; }
 
-        /* Customs Grid */
         .ports-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 15px; }
         .port-card { background-color: #0F172A; border: 1px solid #1E293B; padding: 20px; border-radius: 10px; }
         .port-card h4 { color: #38BDF8; font-size: 16px; margin-bottom: 5px; }
         .port-card p { color: #94A3B8; font-size: 12px; }
 
-        /* Modals (No blur effects to prevent Safari iOS screen freezing) */
         .modal-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); z-index: 10000; display: none; justify-content: center; align-items: center; padding: 20px; }
         .modal-wrapper.open { display: flex; }
         .modal-body { background-color: #0F172A; border: 1px solid #334155; border-radius: 16px; padding: 35px; width: 100%; max-width: 550px; position: relative; }
@@ -93,10 +82,8 @@
         .form-group label { display: block; font-size: 12px; font-weight: 700; color: #94A3B8; text-transform: uppercase; margin-bottom: 6px; }
         .form-control { width: 100%; background-color: #030712; border: 1px solid #334155; padding: 12px 14px; border-radius: 8px; color: #FFFFFF; font-family: inherit; font-size: 14px; outline: none; }
 
-        /* Floating WhatsApp */
         .wa-float { position: fixed; bottom: 25px; right: 25px; background-color: #25D366; color: #FFFFFF; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; text-decoration: none; box-shadow: 0 8px 20px rgba(0,0,0,0.5); z-index: 9900; }
 
-        /* Footer */
         footer { background-color: #02040A; padding: 60px 5% 30px; border-top: 1px solid #1E293B; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 35px; margin-bottom: 40px; }
         .footer-grid h4 { color: #FFFFFF; font-size: 16px; margin-bottom: 15px; }
@@ -107,7 +94,6 @@
 </head>
 <body>
 
-    <!-- Header Navigation -->
     <header>
         <a href="#top" class="logo">DAYA <span>GROUP</span></a>
         <nav>
@@ -120,7 +106,6 @@
         <button class="btn btn-blue" onclick="openModal('contactModal')">Contact Us</button>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="top">
         <div class="badge"><i class="fa-solid fa-earth-americas"></i> Official CPTPP Trading Partner</div>
         <h1>Global Freight Forwarding, Customs Brokerage & Integrated Sourcing</h1>
@@ -131,7 +116,6 @@
         </div>
     </section>
 
-    <!-- Metrics -->
     <div class="stats-grid">
         <div class="stat">
             <h3>14</h3>
@@ -151,7 +135,6 @@
         </div>
     </div>
 
-    <!-- About Section -->
     <section class="section" id="about">
         <div class="grid-2">
             <div>
@@ -175,7 +158,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section class="section" id="services" style="background-color: #0A0F1D;">
         <h2 class="section-title">Integrated Business Divisions</h2>
         <p class="section-subtitle">Single-window cross-border supply chain capabilities connecting Asian manufacturers with domestic markets.</p>
@@ -204,7 +186,6 @@
         </div>
     </section>
 
-    <!-- Target Commodities -->
     <section class="section" id="industries">
         <h2 class="section-title">Target Industry Sourcing & Commodities</h2>
         <p class="section-subtitle">High-volume commodities imported under 0% CPTPP preferential tariffs.</p>
@@ -239,7 +220,6 @@
         </div>
     </section>
 
-    <!-- Calculator Section -->
     <section class="section" id="calculator" style="background-color: #0A0F1D;">
         <div class="grid-2">
             <div>
@@ -268,7 +248,6 @@
         </div>
     </section>
 
-    <!-- Customs Ports Grid -->
     <section class="section" id="customs">
         <h2 class="section-title">14 Licensed Customs Gateways</h2>
         <p class="section-subtitle">In-house customs clearance, NOM compliance, and fiscal warehousing at primary Mexican trade hubs.</p>
@@ -285,12 +264,10 @@
         </div>
     </section>
 
-    <!-- Floating WhatsApp -->
     <a href="https://wa.me/525536602750?text=Hello%20Antuan,%20I%20am%20visiting%20the%20Daya%20Group%20portal" class="wa-float" target="_blank" title="Contact Executive Director">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-grid">
             <div>
@@ -316,7 +293,6 @@
         </div>
     </footer>
 
-    <!-- MODAL 1: Contact Modal -->
     <div class="modal-wrapper" id="contactModal">
         <div class="modal-body">
             <button class="modal-close" onclick="closeModal('contactModal')">&times;</button>
@@ -340,7 +316,6 @@
         </div>
     </div>
 
-    <!-- MODAL 2: RFP Modal -->
     <div class="modal-wrapper" id="rfpModal">
         <div class="modal-body">
             <button class="modal-close" onclick="closeModal('rfpModal')">&times;</button>
@@ -360,7 +335,6 @@
         </div>
     </div>
 
-    <!-- MODAL 3: Catalog Modal -->
     <div class="modal-wrapper" id="catalogModal">
         <div class="modal-body" style="text-align: center;">
             <button class="modal-close" onclick="closeModal('catalogModal')">&times;</button>
@@ -371,7 +345,6 @@
         </div>
     </div>
 
-    <!-- JavaScript Execution -->
     <script>
         function runCalculator() {
             var val = document.getElementById('fobInput').value || 0;
@@ -389,14 +362,12 @@
             if(modal) { modal.classList.remove('open'); }
         }
 
-        // Close modal when clicking dark overlay
         window.onclick = function(event) {
             if (event.target.classList.contains('modal-wrapper')) {
                 event.target.classList.remove('open');
             }
         };
 
-        // Initialize calculator on load
         runCalculator();
     </script>
 </body>
